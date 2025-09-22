@@ -99,7 +99,7 @@ const Index = () => {
   // Counter animation
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCounters({ transparency: 99.9, batches: 10000, stakeholders: 250 });
+      setCounters({ transparency: 99.9, batches: 0, stakeholders: 0 });
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -113,7 +113,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background font-inter">
+    <div className="min-h-screen bg-background font-inter pt-16">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
@@ -158,15 +158,15 @@ const Index = () => {
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-accent mb-2">
-                {counters.batches.toLocaleString()}+
+                {counters.batches}
               </div>
-              <div className="text-lg">Batches Tracked</div>
+              <div className="text-lg">Batches Ready to Track</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-accent mb-2">
-                {counters.stakeholders}+
+                {counters.stakeholders}
               </div>
-              <div className="text-lg">Verified Stakeholders</div>
+              <div className="text-lg">Platform Ready for Stakeholders</div>
             </div>
           </div>
         </div>
@@ -412,39 +412,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Meet the Innovators
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { name: "Arjun Sharma", role: "Blockchain Developer", image: herbsCollection },
-              { name: "Priya Nair", role: "Supply Chain Expert", image: labTesting },
-              { name: "Rahul Gupta", role: "Mobile App Developer", image: herbsCollection },
-              { name: "Sneha Reddy", role: "UI/UX Designer", image: labTesting }
-            ].map((member, index) => (
-              <Card key={index} className="card-shadow scale-on-hover fade-in-up text-center">
-                <CardContent className="p-6">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-muted rounded-full overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
-                  <p className="text-muted-foreground text-sm">{member.role}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="py-12 bg-foreground text-background">
