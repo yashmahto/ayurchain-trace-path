@@ -8,76 +8,47 @@ import herbsCollection from '@/assets/herbs-collection.jpg';
 import labTesting from '@/assets/lab-testing.jpg';
 
 // Icons as SVG components
-const LeafIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+const LeafIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21l3-9 6-6-3-3-6 6-9 3z" />
-  </svg>
-);
-
-const ShieldIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const ShieldIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-);
-
-const AlertIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const AlertIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.996-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-  </svg>
-);
-
-const ChainIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const ChainIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-  </svg>
-);
-
-const TangledIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const TangledIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-  </svg>
-);
-
-const QRIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const QRIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-  </svg>
-);
-
-const FactoryIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const FactoryIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-  </svg>
-);
-
-const BeakerIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const BeakerIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-  </svg>
-);
-
-const BlockchainIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const BlockchainIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14-7H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM8 21v-5a2 2 0 012-2h4a2 2 0 012 2v5" />
-  </svg>
-);
-
-const CloudIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const CloudIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-  </svg>
-);
-
-const DeviceIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  </svg>;
+const DeviceIcon = () => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-  </svg>
-);
-
+  </svg>;
 const Index = () => {
   const [demoId, setDemoId] = useState('AYUR-ASH-082024-KER');
   const [showDemo, setShowDemo] = useState(false);
-  const [counters, setCounters] = useState({ transparency: 0, batches: 0, stakeholders: 0 });
+  const [counters, setCounters] = useState({
+    transparency: 0,
+    batches: 0,
+    stakeholders: 0
+  });
 
   // Scroll animation effect
   useEffect(() => {
@@ -88,38 +59,39 @@ const Index = () => {
         }
       });
     };
-
-    const observer = new IntersectionObserver(observerCallback, { threshold: 0.1 });
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1
+    });
     const elements = document.querySelectorAll('.fade-in-up');
     elements.forEach(el => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
   // Counter animation
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCounters({ transparency: 99.9, batches: 0, stakeholders: 0 });
+      setCounters({
+        transparency: 99.9,
+        batches: 0,
+        stakeholders: 0
+      });
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
   const handleDemoTrace = () => {
     setShowDemo(true);
   };
-
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <div className="min-h-screen bg-background font-inter pt-16">
+  return <div className="min-h-screen bg-background font-inter pt-16">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url(${heroBackground})`
+      }} />
         <div className="absolute inset-0 hero-gradient" />
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
@@ -131,19 +103,10 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center fade-in-up">
-            <Button 
-              size="lg" 
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
-              onClick={() => scrollToSection('demo')}
-            >
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105" onClick={() => scrollToSection('demo')}>
               Trace a Product (Demo)
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
-              onClick={() => scrollToSection('solution')}
-            >
+            <Button size="lg" variant="outline" onClick={() => scrollToSection('solution')} className="border-white hover:bg-white text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105 text-slate-950">
               Learn How It Works
             </Button>
           </div>
@@ -291,23 +254,13 @@ const Index = () => {
 
           <div className="bg-card rounded-lg p-8 card-shadow fade-in-up">
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Input
-                value={demoId}
-                onChange={(e) => setDemoId(e.target.value)}
-                placeholder="Enter Batch ID"
-                className="flex-1 text-lg p-4"
-              />
-              <Button 
-                onClick={handleDemoTrace}
-                size="lg"
-                className="nature-gradient text-white hover:opacity-90 px-8 font-semibold"
-              >
+              <Input value={demoId} onChange={e => setDemoId(e.target.value)} placeholder="Enter Batch ID" className="flex-1 text-lg p-4" />
+              <Button onClick={handleDemoTrace} size="lg" className="nature-gradient text-white hover:opacity-90 px-8 font-semibold">
                 Trace Product
               </Button>
             </div>
 
-            {showDemo && (
-              <div className="space-y-6 animate-fade-in">
+            {showDemo && <div className="space-y-6 animate-fade-in">
                 <h3 className="text-2xl font-semibold text-center mb-8">
                   Journey of Batch: {demoId}
                 </h3>
@@ -357,8 +310,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
@@ -433,8 +385,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
