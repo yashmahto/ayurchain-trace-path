@@ -2,41 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* AyurChain Design System - Digital Nature Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --background: 0 0% 97.3%; /* #F8F9FA - Very light clean gray */
+    --foreground: 0 0% 20%; /* #333333 - Dark charcoal for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Reassuring Green */
+    --primary: 122 39% 32.2%; /* #2E7D32 - Trust & Nature */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Vibrant Action Green */
+    --secondary: 122 32% 58.8%; /* #66BB6A - Vitality & Action */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Golden Ochre for highlights */
+    --accent: 48 89% 58.4%; /* #FBC02D - Purity & Quality */
+    --accent-foreground: 0 0% 20%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 122 39% 32.2%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom AyurChain Tokens */
+    --nature-gradient: linear-gradient(135deg, hsl(122 39% 32.2%) 0%, hsl(122 32% 58.8%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(122 39% 32.2% / 0.95) 0%, hsl(122 32% 58.8% / 0.95) 100%);
+    --card-shadow: 0 4px 20px hsl(122 39% 32.2% / 0.08);
+    --card-shadow-hover: 0 8px 30px hsl(122 39% 32.2% / 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +112,45 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* AyurChain Custom Components */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .nature-gradient {
+    background: var(--nature-gradient);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+  
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+  
+  /* Animation Classes */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scale-on-hover {
+    transition: var(--transition-smooth);
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.05);
   }
 }
