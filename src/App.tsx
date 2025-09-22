@@ -6,9 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Header from "./components/Header";
 import Index from "./pages/Index";
-import Analytics from "./pages/Analytics";
-import History from "./pages/History";
-import Ledger from "./pages/Ledger";
+import BatchLookup from "./pages/BatchLookup";
+import ConsumerPortal from "./pages/ConsumerPortal";
+import RegulatorDashboard from "./pages/RegulatorDashboard";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,9 +25,11 @@ const App = () => (
           <Header />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/ledger" element={<Ledger />} />
+            <Route path="/batch-lookup" element={<BatchLookup />} />
+            <Route path="/consumer-portal" element={<ConsumerPortal />} />
+            <Route path="/regulator-dashboard" element={<RegulatorDashboard />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
