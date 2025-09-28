@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { TrendingUp, Package, Users, AlertTriangle, CheckCircle } from 'lucide-react';
@@ -120,72 +121,72 @@ const RegulatorDashboard = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex flex-col">
+      <div className="container mx-auto px-2 py-8 md:px-0 flex-1">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-800 mb-4">📊 Regulator Dashboard</h1>
-            <p className="text-lg text-slate-600">AyurChain Supply Chain Monitoring & Compliance</p>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-extrabold text-orange-900 mb-3 tracking-tight drop-shadow-sm">📊 Regulator Dashboard</h1>
+            <p className="text-xl text-orange-700 font-medium">AyurChain Supply Chain Monitoring & Compliance</p>
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
-              <CardContent className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-emerald-400/90 to-emerald-600/90 text-white">
+              <CardContent className="p-7">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-emerald-100">Total Batches</p>
-                    <p className="text-3xl font-bold">{stats.totalBatches}</p>
+                    <p className="text-4xl font-extrabold">{stats.totalBatches}</p>
                   </div>
-                  <Package className="w-8 h-8 text-emerald-200" />
+                  <Package className="w-10 h-10 text-emerald-200" />
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-              <CardContent className="p-6">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-blue-400/90 to-blue-600/90 text-white">
+              <CardContent className="p-7">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-blue-100">Registered Farmers</p>
-                    <p className="text-3xl font-bold">{stats.totalFarmers}</p>
+                    <p className="text-4xl font-extrabold">{stats.totalFarmers}</p>
                   </div>
-                  <Users className="w-8 h-8 text-blue-200" />
+                  <Users className="w-10 h-10 text-blue-200" />
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-              <CardContent className="p-6">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-green-400/90 to-green-600/90 text-white">
+              <CardContent className="p-7">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-green-100">Compliance Rate</p>
-                    <p className="text-3xl font-bold">{stats.complianceRate}%</p>
+                    <p className="text-4xl font-extrabold">{stats.complianceRate}%</p>
                   </div>
-                  <CheckCircle className="w-8 h-8 text-green-200" />
+                  <CheckCircle className="w-10 h-10 text-green-200" />
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-              <CardContent className="p-6">
+            <Card className="shadow-lg border-0 bg-gradient-to-br from-orange-400/90 to-orange-600/90 text-white">
+              <CardContent className="p-7">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-orange-100">Quality Issues</p>
-                    <p className="text-3xl font-bold">{stats.qualityIssues}</p>
+                    <p className="text-4xl font-extrabold">{stats.qualityIssues}</p>
                   </div>
-                  <AlertTriangle className="w-8 h-8 text-orange-200" />
+                  <AlertTriangle className="w-10 h-10 text-orange-200" />
                 </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Charts Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Herbs by Type Pie Chart */}
-            <Card>
+            <Card className="shadow border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Herbs by Type Distribution</CardTitle>
+                <CardTitle className="text-orange-800">Herbs by Type Distribution</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -211,9 +212,9 @@ const RegulatorDashboard = () => {
             </Card>
 
             {/* Supply Chain Flow Line Chart */}
-            <Card>
+            <Card className="shadow border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Monthly Supply Chain Flow</CardTitle>
+                <CardTitle className="text-orange-800">Monthly Supply Chain Flow</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -232,11 +233,11 @@ const RegulatorDashboard = () => {
           </div>
 
           {/* Compliance and Recent Batches Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Compliance Bar Chart */}
-            <Card>
+            <Card className="shadow border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Compliance Metrics</CardTitle>
+                <CardTitle className="text-orange-800">Compliance Metrics</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -252,22 +253,22 @@ const RegulatorDashboard = () => {
             </Card>
 
             {/* Recent Batches Table */}
-            <Card>
+            <Card className="shadow border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Recent Batch Activity</CardTitle>
+                <CardTitle className="text-orange-800">Recent Batch Activity</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {recentBatches.length > 0 ? (
                     recentBatches.map((batch) => (
-                      <div key={batch.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div key={batch.id} className="flex items-center justify-between p-4 bg-orange-50/60 rounded-xl shadow-sm border border-orange-100">
                         <div>
-                          <p className="font-medium">{batch.herbName}</p>
+                          <p className="font-semibold text-orange-900">{batch.herbName}</p>
                           <p className="text-sm text-gray-600">ID: {batch.id}</p>
                           <p className="text-sm text-gray-600">Farmer: {batch.farmerName}</p>
                         </div>
                         <div className="text-right">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                             batch.status === 'Compliant' 
                               ? 'bg-green-100 text-green-800' 
                               : 'bg-yellow-100 text-yellow-800'
@@ -292,36 +293,37 @@ const RegulatorDashboard = () => {
           </div>
 
           {/* Additional Stats */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <TrendingUp className="w-8 h-8 mx-auto mb-2 text-green-600" />
-                <h3 className="font-semibold text-lg">Supply Chain Efficiency</h3>
-                <p className="text-2xl font-bold text-green-600">94.2%</p>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center shadow border-0 bg-white/90">
+              <CardContent className="p-8">
+                <TrendingUp className="w-10 h-10 mx-auto mb-3 text-green-600" />
+                <h3 className="font-semibold text-lg text-orange-900">Supply Chain Efficiency</h3>
+                <p className="text-3xl font-extrabold text-green-600">94.2%</p>
                 <p className="text-sm text-gray-600">Average processing time</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <CheckCircle className="w-8 h-8 mx-auto mb-2 text-blue-600" />
-                <h3 className="font-semibold text-lg">Quality Assurance</h3>
-                <p className="text-2xl font-bold text-blue-600">98.7%</p>
+            <Card className="text-center shadow border-0 bg-white/90">
+              <CardContent className="p-8">
+                <CheckCircle className="w-10 h-10 mx-auto mb-3 text-blue-600" />
+                <h3 className="font-semibold text-lg text-orange-900">Quality Assurance</h3>
+                <p className="text-3xl font-extrabold text-blue-600">98.7%</p>
                 <p className="text-sm text-gray-600">Pass rate for quality tests</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <Users className="w-8 h-8 mx-auto mb-2 text-purple-600" />
-                <h3 className="font-semibold text-lg">Stakeholder Satisfaction</h3>
-                <p className="text-2xl font-bold text-purple-600">96.4%</p>
+            <Card className="text-center shadow border-0 bg-white/90">
+              <CardContent className="p-8">
+                <Users className="w-10 h-10 mx-auto mb-3 text-purple-600" />
+                <h3 className="font-semibold text-lg text-orange-900">Stakeholder Satisfaction</h3>
+                <p className="text-3xl font-extrabold text-purple-600">96.4%</p>
                 <p className="text-sm text-gray-600">Platform adoption rate</p>
               </CardContent>
             </Card>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

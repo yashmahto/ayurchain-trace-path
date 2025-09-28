@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -125,8 +126,8 @@ const ProcessorPortal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 flex flex-col">
+      <div className="container mx-auto px-4 py-8 flex-1">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
@@ -275,7 +276,7 @@ const ProcessorPortal = () => {
                   <div className="space-y-4">
                     {selectedBatch.processingSteps && selectedBatch.processingSteps.length > 0 ? (
                       selectedBatch.processingSteps.map((step, index) => (
-                        <div key={step.id} className="flex items-start space-x-4 p-4 bg-white rounded-lg border">
+                        <div key={step.id} className="flex items-start space-x-4 p-4 bg-[#FFF7ED] rounded-lg border">
                           <div className="flex flex-col items-center">
                             <div className="p-2 rounded-full bg-gray-100">
                               {getStatusIcon(step.status)}
@@ -337,6 +338,7 @@ const ProcessorPortal = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

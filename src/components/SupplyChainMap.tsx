@@ -12,18 +12,33 @@ const journey = [
 const positions = journey.map(j => j.position);
 
 export default function SupplyChainMap() {
+  // Calculate bounds to fit all journey points
+  const lats = journey.map(j => j.position[0]);
+  const lngs = journey.map(j => j.position[1]);
+  const southWest = [Math.min(...lats) - 1, Math.min(...lngs) - 1];
+  const northEast = [Math.max(...lats) + 1, Math.max(...lngs) + 1];
+  const bounds = [southWest, northEast];
+
   return (
-    <MapContainer center={[23.2599, 77.4126]} zoom={5} style={{ height: '400px', width: '100%' }}>
+    <MapContainer
+      center={[23.2599, 77.4126]}
+      zoom={5}
+      minZoom={5}
+      maxZoom={10}
+      bounds={bounds}
+      boundsOptions={{ maxBoundsViscosity: 1.0 }}
+      style={{ height: '400px', width: '100%' }}
+    >
       <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        attribution="&copy; OpenStreetMap contributors"
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {journey.map((loc, idx) => (
         <Marker key={idx} position={loc.position}>
           <Popup>{loc.name}</Popup>
         </Marker>
       ))}
-      <Polyline positions={positions} color='blue' />
+      <Polyline pathOptions={{ color: 'blue' }} positions={positions} />
     </MapContainer>
   );
 }

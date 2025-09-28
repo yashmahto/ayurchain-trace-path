@@ -193,46 +193,46 @@ const ConsumerPortal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
+      <div className="container mx-auto px-2 py-8 md:px-0">
+        <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-green-800 mb-4">🛒 Consumer Portal</h1>
-            <p className="text-lg text-green-600">Track your herb's journey from farm to pharmacy</p>
+          <div className="text-center mb-10">
+            <h1 className="text-5xl font-extrabold text-green-900 mb-3 tracking-tight drop-shadow-sm">🛒 Consumer Portal</h1>
+            <p className="text-xl text-green-700 font-medium">Track your herb's journey from farm to pharmacy</p>
           </div>
 
           {/* Search Section */}
-          <Card className="mb-8">
+          <Card className="mb-10 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <Search className="w-5 h-5 mr-2" />
+              <CardTitle className="flex items-center gap-2 text-green-800">
+                <Search className="w-5 h-5" />
                 Track Your Product
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div>
-                  <Label htmlFor="batchId">Batch ID or QR Code</Label>
-                  <div className="flex gap-2">
+                  <Label htmlFor="batchId" className="text-green-700 font-semibold">Batch ID or QR Code</Label>
+                  <div className="flex gap-2 mt-2">
                     <Input
                       id="batchId"
                       value={batchId}
                       onChange={(e) => setBatchId(e.target.value)}
                       placeholder="Enter batch ID (e.g., AYUR-ABC-123456)"
-                      className="flex-1"
+                      className="flex-1 border-green-200 focus:ring-green-400/40 focus:border-green-400/80 bg-white/70"
                     />
                     <Button 
                       onClick={() => handleSearch()}
                       disabled={loading}
-                      className="bg-green-600 hover:bg-green-700 text-white"
+                      className="bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-md"
                     >
                       {loading ? 'Searching...' : 'Search'}
                     </Button>
                   </div>
                 </div>
                 <div className="text-center">
-                  <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                  <Button variant="outline" className="border-green-500 text-green-700 hover:bg-green-50/60">
                     <QrCode className="w-4 h-4 mr-2" />
                     Scan QR Code
                   </Button>
@@ -243,61 +243,61 @@ const ConsumerPortal = () => {
 
           {/* Error Message */}
           {error && (
-            <Card className="mb-8 border-red-200 bg-red-50">
+            <Card className="mb-8 border-red-200 bg-red-50/80 shadow">
               <CardContent className="pt-6">
-                <p className="text-red-600 text-center">{error}</p>
+                <p className="text-red-600 text-center font-semibold">{error}</p>
               </CardContent>
             </Card>
           )}
 
           {/* Batch Details */}
           {batch && (
-            <Card className="mb-8">
+            <Card className="mb-10 shadow-lg border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Batch Information</CardTitle>
+                <CardTitle className="text-green-800">Batch Information</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <Package className="w-4 h-4 mr-2 text-green-600" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <Package className="w-4 h-4 text-green-600" />
                       <span className="font-medium">Herb:</span>
-                      <span className="ml-2">{batch.herbName}</span>
+                      <span className="ml-2 text-green-900 font-semibold">{batch.herbName}</span>
                     </div>
-                    <div className="flex items-center">
-                      <User className="w-4 h-4 mr-2 text-green-600" />
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-green-600" />
                       <span className="font-medium">Farmer:</span>
-                      <span className="ml-2">{batch.farmerName}</span>
+                      <span className="ml-2 text-green-900">{batch.farmerName}</span>
                     </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-green-600" />
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-green-600" />
                       <span className="font-medium">Origin:</span>
-                      <span className="ml-2">{batch.location}</span>
+                      <span className="ml-2 text-green-900">{batch.location}</span>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-green-600" />
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-green-600" />
                       <span className="font-medium">Harvest Date:</span>
-                      <span className="ml-2">{new Date(batch.harvestDate).toLocaleDateString()}</span>
+                      <span className="ml-2 text-green-900">{new Date(batch.harvestDate).toLocaleDateString()}</span>
                     </div>
-                    <div className="flex items-center">
-                      <Package className="w-4 h-4 mr-2 text-green-600" />
+                    <div className="flex items-center gap-2">
+                      <Package className="w-4 h-4 text-green-600" />
                       <span className="font-medium">Quantity:</span>
-                      <span className="ml-2">{batch.quantity} kg</span>
+                      <span className="ml-2 text-green-900">{batch.quantity} kg</span>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-2">
                       <span className="font-medium">Quality:</span>
-                      <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                      <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
                         {batch.quality}
                       </span>
                     </div>
                   </div>
                 </div>
                 {batch.notes && (
-                  <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-                    <span className="font-medium">Notes:</span>
-                    <p className="text-gray-600 mt-1">{batch.notes}</p>
+                  <div className="mt-5 p-4 bg-green-50/80 rounded-lg border border-green-100">
+                    <span className="font-medium text-green-800">Notes:</span>
+                    <p className="text-gray-700 mt-1">{batch.notes}</p>
                   </div>
                 )}
               </CardContent>
@@ -306,14 +306,38 @@ const ConsumerPortal = () => {
 
           {/* Supply Chain Timeline */}
           {supplyChain.length > 0 && (
-            <Card>
+            <Card className="mb-10 shadow-lg border-0 bg-white/90">
               <CardHeader>
-                <CardTitle>Supply Chain Journey</CardTitle>
+                <CardTitle className="text-green-800">Supply Chain Journey</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                {/* Progress Bar */}
+                <div className="flex items-center justify-between mb-8 px-2">
+                  {supplyChain.map((step, idx) => (
+                    <React.Fragment key={step.id}>
+                      <div className="flex flex-col items-center">
+                        <div className={`w-8 h-8 flex items-center justify-center rounded-full border-4 ${
+                          step.status === 'completed' ? 'border-green-500 bg-green-100' :
+                          step.status === 'current' ? 'border-blue-400 bg-blue-50 animate-pulse' :
+                          'border-gray-300 bg-gray-100'
+                        }`}>
+                          {getStatusIcon(step.status)}
+                        </div>
+                        <span className="mt-2 text-xs font-semibold text-green-800">{step.step}</span>
+                      </div>
+                      {idx < supplyChain.length - 1 && (
+                        <div className={`flex-1 h-1 mx-1 md:mx-2 rounded-full ${
+                          supplyChain[idx+1].status === 'completed' || step.status === 'completed'
+                            ? 'bg-green-300' : 'bg-gray-200'
+                        }`} />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+                {/* Timeline Details */}
+                <div className="space-y-6">
                   {supplyChain.map((step, index) => (
-                    <div key={step.id} className="flex items-start space-x-4">
+                    <div key={step.id} className={`flex items-start space-x-4 p-4 rounded-xl shadow-sm border ${getStatusColor(step.status)} transition-all duration-300`}>
                       <div className="flex flex-col items-center">
                         <div className={`p-2 rounded-full border-2 ${getStatusColor(step.status)}`}>
                           {getStatusIcon(step.status)}
@@ -322,16 +346,16 @@ const ConsumerPortal = () => {
                           <div className="w-0.5 h-8 bg-gray-200 mt-2"></div>
                         )}
                       </div>
-                      <div className="flex-1 pb-4">
+                      <div className="flex-1 pb-2">
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-lg">{step.step}</h3>
+                          <h3 className="font-semibold text-lg text-green-900">{step.step}</h3>
                           <span className="text-sm text-gray-500">
                             {new Date(step.date).toLocaleDateString()}
                           </span>
                         </div>
-                        <p className="text-gray-600 font-medium">{step.actor}</p>
+                        <p className="text-green-700 font-medium">{step.actor}</p>
                         <p className="text-gray-500 text-sm">{step.location}</p>
-                        <p className="text-gray-600 mt-1">{step.description}</p>
+                        <p className="text-gray-700 mt-1">{step.description}</p>
                       </div>
                     </div>
                   ))}
@@ -342,11 +366,11 @@ const ConsumerPortal = () => {
 
           {/* No Results */}
           {!batch && !loading && !error && (
-            <Card>
-              <CardContent className="pt-6">
-                <div className="text-center py-8">
-                  <QrCode className="w-16 h-16 mx-auto text-gray-300 mb-4" />
-                  <h3 className="text-lg font-medium text-gray-600 mb-2">Track Your Product</h3>
+            <Card className="shadow border-0 bg-white/80">
+              <CardContent className="pt-8">
+                <div className="text-center py-10">
+                  <QrCode className="w-16 h-16 mx-auto text-green-200 mb-4" />
+                  <h3 className="text-xl font-semibold text-green-700 mb-2">Track Your Product</h3>
                   <p className="text-gray-500">
                     Enter a batch ID above to see the complete journey of your herb from farm to pharmacy.
                   </p>

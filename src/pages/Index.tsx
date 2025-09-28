@@ -1,5 +1,6 @@
 // AyurChain - Blockchain Traceability for Ayurvedic Supply Chain
 import React, { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 import SupplyChainMap from '@/components/SupplyChainMap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -73,8 +74,8 @@ const Index = () => {
     const timer = setTimeout(() => {
       setCounters({
         transparency: 99.9,
-        batches: 0,
-        stakeholders: 0
+        batches: 4,
+        stakeholders: 2
       });
     }, 1000);
     return () => clearTimeout(timer);
@@ -87,17 +88,17 @@ const Index = () => {
       behavior: 'smooth'
     });
   };
-  return <div className="min-h-screen bg-background font-inter" >
+  return <div className="min-h-screen bg-[#FFF7ED] font-inter" >
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FFF7ED]">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
         backgroundImage: `url(${heroBackground})`
       }} />
         <div className="absolute inset-0 hero-gradient" />
         
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
+  <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-[#ffffff]">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 fade-in-up">
-            Trust in Every Leaf
+            Track Your Ayurvedic Herbs from Farm to Shelf
           </h1>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed fade-in-up">
             AyurChain brings immutable transparency to the Ayurvedic supply chain using blockchain technology. From farm to pharmacy, verify the journey.
@@ -105,10 +106,10 @@ const Index = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center fade-in-up">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105" onClick={() => scrollToSection('demo')}>
-              Trace a Product (Demo)
+              Start Tracing Now
             </Button>
             <Button size="lg" variant="outline" onClick={() => scrollToSection('solution')} className="border-white hover:bg-white text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105 text-slate-950">
-              Learn How It Works
+              View Demo
             </Button>
           </div>
 
@@ -137,7 +138,7 @@ const Index = () => {
       </section>
 
         {/* Supply Chain Map Section */}
-        <section className="py-12 bg-background">
+  <section className="py-12 bg-[#FFF7ED]">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-foreground">Track the Supply Chain Journey</h2>
             <SupplyChainMap />
@@ -145,24 +146,24 @@ const Index = () => {
         </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-background">
+  <section className="py-20 bg-[#FFF7ED]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              An Unclear Path to Purity
+              From Harvest to Health
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <Card className="card-shadow scale-on-hover fade-in-up">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 text-destructive">
                   <AlertIcon />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Adulteration</h3>
+                <h3 className="text-xl font-semibold mb-4">Geo-Tagged Collection</h3>
                 <p className="text-muted-foreground">
-                  Lack of verifiable sources leads to low-quality and adulterated herbs affecting consumer safety.
-                </p>
+                  Farmers and collectors log harvest data with precise GPS coordinates.
+                </p>  
               </CardContent>
             </Card>
 
@@ -171,9 +172,9 @@ const Index = () => {
                 <div className="w-16 h-16 mx-auto mb-6 text-destructive">
                   <ChainIcon />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">No Transparency</h3>
+                <h3 className="text-xl font-semibold mb-4">Quality Testing</h3>
                 <p className="text-muted-foreground">
-                  Consumers and manufacturers have no visibility into the herb's origin or journey.
+                  Laboratory analysis for moisture, pesticides, and DNA authentication
                 </p>
               </CardContent>
             </Card>
@@ -183,9 +184,20 @@ const Index = () => {
                 <div className="w-16 h-16 mx-auto mb-6 text-destructive">
                   <TangledIcon />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Inefficient Supply Chain</h3>
+                <h3 className="text-xl font-semibold mb-4">Processing Step</h3>
                 <p className="text-muted-foreground">
-                  Manual, paper-based tracking is prone to errors and fraud.
+                  Drying, grinding, and storage conditions tracked in real-time
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="card-shadow scale-on-hover fade-in-up">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 text-destructive">
+                  <QRIcon />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Consumer Scanning</h3>
+                <p className="text-muted-foreground">
+                  End customers scan QR codes to view complete provenance history
                 </p>
               </CardContent>
             </Card>
@@ -250,7 +262,7 @@ const Index = () => {
       </section>
 
       {/* Interactive Demo Section */}
-      <section id="demo" className="py-20 bg-background">
+      <section id="demo" className="py-20 bg-[#FFF7ED]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12 fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -375,25 +387,7 @@ const Index = () => {
 
 
       {/* Footer */}
-      <footer className="py-12 bg-foreground text-background">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">AyurChain</h3>
-            <p className="text-lg opacity-80">Trust in Every Leaf</p>
-          </div>
-          
-          <div className="border-t border-background/20 pt-8">
-            <p className="opacity-60">
-              AyurChain - A Smart India Hackathon 2024 Project
-            </p>
-            <div className="mt-4 space-x-6">
-              <a href="#" className="hover:text-accent transition-colors">GitHub Repository</a>
-              <a href="#" className="hover:text-accent transition-colors">Project Presentation</a>
-              <a href="#" className="hover:text-accent transition-colors">Documentation</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>;
 };
 export default Index;

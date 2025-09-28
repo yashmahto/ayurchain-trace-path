@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,8 @@ const History = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 flex flex-col">
+      <div className="max-w-7xl mx-auto px-6 py-12 flex-1">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-4">Herbs History</h1>
           <p className="text-xl text-muted-foreground">
@@ -59,6 +60,7 @@ const History = () => {
           </CardContent>
         </Card>
       </div>
+      <Footer />
     </div>
   );
 };

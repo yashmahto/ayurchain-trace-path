@@ -1,11 +1,12 @@
 import React from 'react';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, Users, Target, Award } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50">
-      <div className="container mx-auto px-4 py-8">
+  <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50 flex flex-col">
+  <div className="container mx-auto px-4 py-8 flex-1">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -138,6 +139,7 @@ const About = () => {
           </Card>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
