@@ -50,44 +50,7 @@ const ConsumerPortal = () => {
     const distributionDate = new Date(processingDate.getTime() + 14 * 24 * 60 * 60 * 1000); // 14 days later
     const retailDate = new Date(distributionDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days later
 
-    return [
-      {
-        id: '1',
-        step: 'Harvest',
-        actor: batch.farmerName,
-        location: batch.location,
-        date: harvestDate.toISOString(),
-        status: 'completed',
-        description: `Harvested ${batch.quantity}kg of ${batch.herbName} from ${batch.location}`
-      },
-      {
-        id: '2',
-        step: 'Processing',
-        actor: 'GreenHerbs Processing Co.',
-        location: 'Kochi, Kerala',
-        date: processingDate.toISOString(),
-        status: 'completed',
-        description: 'Quality testing, cleaning, and initial processing completed'
-      },
-      {
-        id: '3',
-        step: 'Distribution',
-        actor: 'Ayurvedic Distributors Ltd.',
-        location: 'Mumbai, Maharashtra',
-        date: distributionDate.toISOString(),
-        status: 'current',
-        description: 'Batch distributed to regional warehouses'
-      },
-      {
-        id: '4',
-        step: 'Retail',
-        actor: 'Wellness Pharmacy',
-        location: 'Delhi, India',
-        date: retailDate.toISOString(),
-        status: 'pending',
-        description: 'Ready for retail sale'
-      }
-    ];
+   
   };
 
   const handleSearch = async (searchBatchId?: string) => {
@@ -99,68 +62,28 @@ const ConsumerPortal = () => {
 
     setLoading(true);
     setError('');
+    setBatch(null);
+    setSupplyChain([]);
 
     try {
-      // Simulate API call - in real app, this would be an actual API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Get batches from localStorage
-      const savedBatches = localStorage.getItem('ayurchain-batches');
-      let batches: Batch[] = savedBatches ? JSON.parse(savedBatches) : [];
-      
-      // Add dummy data if no batches exist
-      if (batches.length === 0) {
-        const dummyBatches: Batch[] = [
-          {
-            id: 'AYUR-ASH-082024-KER',
-            herbName: 'Ashwagandha',
-            location: 'Kerala, India',
-            harvestDate: '2024-08-15',
-            farmerName: 'Rajesh Kumar',
-            quantity: '50',
-            quality: 'Premium',
-            notes: 'Organic cultivation, no pesticides used',
-            createdAt: '2024-08-15T10:30:00Z'
-          },
-          {
-            id: 'AYUR-TUR-082024-TN',
-            herbName: 'Turmeric',
-            location: 'Tamil Nadu, India',
-            harvestDate: '2024-08-20',
-            farmerName: 'Priya Sharma',
-            quantity: '75',
-            quality: 'Standard',
-            notes: 'Traditional farming methods',
-            createdAt: '2024-08-20T14:15:00Z'
-          },
-          {
-            id: 'AYUR-TUL-082024-HP',
-            herbName: 'Tulsi (Holy Basil)',
-            location: 'Himachal Pradesh, India',
-            harvestDate: '2024-08-25',
-            farmerName: 'Amit Singh',
-            quantity: '30',
-            quality: 'Premium',
-            notes: 'High altitude cultivation, superior quality',
-            createdAt: '2024-08-25T09:45:00Z'
-          }
-        ];
-        batches = dummyBatches;
-        localStorage.setItem('ayurchain-batches', JSON.stringify(dummyBatches));
-      }
-      
-      const foundBatch = batches.find(b => b.id === idToSearch);
-      
-      if (foundBatch) {
-        setBatch(foundBatch);
-        setSupplyChain(generateSupplyChain(foundBatch));
-      } else {
-        setError('Batch not found. Please check the batch ID and try again.');
+      const res = await fetch(`/api/batch?id=${encodeURIComponent(idToSearch)}`);
+      if (!res.ok) {
+        if (res.status === 404) {
+          setError('Batch not found. Please check the batch ID and try again.');
+        } else {
+          setError('Error searching for batch. Please try again.');
+        }
         setBatch(null);
         setSupplyChain([]);
+        return;
       }
+      const data = await res.json();
+      setBatch(data);
+      setSupplyChain(generateSupplyChain(data));
     } catch (err) {
       setError('Error searching for batch. Please try again.');
+      setBatch(null);
+      setSupplyChain([]);
     } finally {
       setLoading(false);
     }
